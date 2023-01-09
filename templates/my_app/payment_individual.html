@@ -1,0 +1,325 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+{% load ams_tags %}
+
+{% block title %}Payment{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+
+    <link rel="stylesheet" href={% static "js/jquery-ui.css" %}>
+    <script src={% static "js/jquery-3.3.1.js" %}></script>
+    <script src={% static "js/jquery-ui.js" %}></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $(".pay_date").datepicker(
+                {
+                    showAnim: 'slide',
+                    {#dateFormat: 'D: d-M-yy',#}
+                    {#dateFormat:'dd-mm-yy',#}
+                    {#dateFormat:'mm/dd/yy',#}
+                    changeMonth: true,
+                    changeYear: true,
+                });
+        });
+
+    </script>
+
+{% endblock %}
+
+{% block style %}
+
+    <style>
+        #hx {
+            float: left;
+        }
+
+        #dx {
+            clear: both;
+        }
+
+        #hnam {
+
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+
+        }
+
+        #hrn {
+            display: block;
+            width: 3.5em;
+            color: white;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #hbt {
+            display: block;
+            width: 5em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            line-height: 1.5em;
+        }
+
+        #hrcac, #hec, #hwc, #hcsc, #hosc, #hmisc, #hovd {
+            display: block;
+            width: 3.5em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            line-height: 1.5em;
+        }
+
+        .nam {
+            display: block;
+            width: 12em;
+            text-align: left;
+            float: left;
+            line-height: 1.5em;
+            color: #003eff;
+            clear: left;
+        }
+
+        .rn {
+            display: block;
+            width: 3.5em;
+            text-align: center;
+            color: #de1710;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .rn:hover {
+            color: black;
+            font-weight: bold;
+        }
+
+        .rcac, .ec, .wc, .csc, .osc, .misc, .ovd {
+            display: block;
+            width: 3.5em;
+            text-align: right;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .bt {
+            display: block;
+            width: 5em;
+            text-align: right;
+            float: left;
+            line-height: 1.5em;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <h1>Monthly Bills({{bill_month_year}})</h1>
+
+
+    <div id="hx">
+        <label id="hnam">NAME</label>
+        <label id="hrn">ROOM</label>
+        <label id="hrcac">RAC</label>
+        <label id="hec">EC</label>
+        <label id="hwc">WC</label>
+        <label id="hcsc">CSC</label>
+        <label id="hosc">OSC</label>
+        <label id="hovd">OVD</label>
+
+
+        <label id="hmisc">MISC</label>
+
+        <label id="hbt">TOTAL</label>
+        <br>
+    </div>
+    <div id="dx">
+
+        {% for tenant_bill in bills %}
+            {% if tenant_bill.room_no == '101A' %}
+                {% display_individual_tenant_bill_data '101A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '102A' %}
+                {% display_individual_tenant_bill_data '102A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '103A' %}
+                {% display_individual_tenant_bill_data '103A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '104A' %}
+                {% display_individual_tenant_bill_data '104A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '105A' %}
+                {% display_individual_tenant_bill_data '105A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '106A' %}
+                {% display_individual_tenant_bill_data '106A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '201A' %}
+                {% display_individual_tenant_bill_data '201A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '202A' %}
+                {% display_individual_tenant_bill_data '202A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '203A' %}
+                {% display_individual_tenant_bill_data '203A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '204A' %}
+                {% display_individual_tenant_bill_data '204A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '205A' %}
+                {% display_individual_tenant_bill_data '205A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '206A' %}
+                {% display_individual_tenant_bill_data '206A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '301A' %}
+                {% display_individual_tenant_bill_data '301A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '302A' %}
+                {% display_individual_tenant_bill_data '302A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '303A' %}
+                {% display_individual_tenant_bill_data '303A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '304A' %}
+                {% display_individual_tenant_bill_data '304A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '305A' %}
+                {% display_individual_tenant_bill_data '305A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '306A' %}
+                {% display_individual_tenant_bill_data '306A' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '201B' %}
+                {% display_individual_tenant_bill_data '201B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '202B' %}
+                {% display_individual_tenant_bill_data '202B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '203B' %}
+                {% display_individual_tenant_bill_data '203B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '204B' %}
+                {% display_individual_tenant_bill_data '204B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '205B' %}
+                {% display_individual_tenant_bill_data '205B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '301B' %}
+                {% display_individual_tenant_bill_data '301B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '302B' %}
+                {% display_individual_tenant_bill_data '302B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '303B' %}
+                {% display_individual_tenant_bill_data '303B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '304B' %}
+                {% display_individual_tenant_bill_data '304B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '305B' %}
+                {% display_individual_tenant_bill_data '305B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '401B' %}
+                {% display_individual_tenant_bill_data '401B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '402B' %}
+                {% display_individual_tenant_bill_data '402B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '403B' %}
+                {% display_individual_tenant_bill_data '403B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '404B' %}
+                {% display_individual_tenant_bill_data '404B' %}
+                <br>
+            {% endif %}
+
+            {% if tenant_bill.room_no == '405B' %}
+                {% display_individual_tenant_bill_data '405B' %}
+                <br>
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
+

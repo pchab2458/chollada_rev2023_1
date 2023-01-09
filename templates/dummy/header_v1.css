@@ -1,0 +1,79 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: lightgray;
+
+    font-family: "Verdana", "Arial", "helvetica", "Courier New", sans-serif;
+}
+
+#content {
+    padding: 20px 100px;
+}
+
+
+#header {
+    padding: 10px 40px;
+    font-size: 14px;
+    background: dodgerblue;
+    color: #fff;
+    border-bottom: 2px solid blue;
+    overflow: auto;
+}
+
+#header .logo {
+    font-family: "Verdana", "Arial", "helvetica", "Courier New", sans-serif;
+    float: left;
+    color: blue;
+    font-size: 25px;
+    margin-top: 2px;
+    margin-right: 2%;
+}
+
+#header ul.menu {
+    list-style: none;
+    float: left;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#header ul.menu li {
+    float: left;
+    padding: 0 10px;
+}
+
+#header ul.menu li.selected a {
+    color: red;
+}
+
+#header ul.menu li.selected a:hover {
+
+    color: #1b6d32;
+    font-style: italic;
+    font-size: 1em;
+}
+
+#header a {
+    color: #f3f7cc;
+}
+
+#header a:hover {
+    color: black;
+}
+
+#header .user {
+    float: right;
+    padding-top: 0;
+    margin-top: 10px;
+    color: #dad55e;
+
+}
+
+#header .user a {
+    color: #fff;
+}
+
+
+
+

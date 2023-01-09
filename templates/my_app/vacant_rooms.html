@@ -1,0 +1,81 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+{% load ams_tags %}
+
+{% block title %}Vacant rooms{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    <style>
+        div #hx {
+            float: left;
+        }
+
+        div #da {
+            clear: both;
+        }
+
+        #hrn {
+            display: block;
+            width: 4em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        #hrmc {
+            display: block;
+            width: 5em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+
+        .rn {
+            display: block;
+            width: 4em;
+            color: red;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        .rmc {
+            display: block;
+            width: 5em;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h2>Vacant Rooms( <i>{{ current_dt }}</i> )</h2>
+
+    <div id="hx">
+        <label id="hrn">RNO</label>
+        <label id="hrmc">RATE</label>
+
+        <br>
+    </div>
+
+    <div id="da">
+
+        {% for rn in vac_rm_set %}
+            <span class="rn">{{ rn }}</span>
+            <span class="rmc">{% room_cost rn %}</span><br>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends "auth_base_html.html" %}
+
+{% load static %}
+{% block title %}Create new user{% endblock %}
+
+
+
+{% block style %}
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: helvetica, sans-serif;
+        }
+
+        #content {
+            padding: 20px 100px;
+        }
+
+
+        p {
+            line-height: 1.2;
+
+        }
+
+        a {
+            color: #12c064;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #00a74f;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Muli', sans-serif;
+            font-weight: normal;
+
+        }
+
+        h1 {
+            border-bottom: 1px solid #bbb;
+            padding: 0 0 5px 0;
+            margin: 10px 0 20px 0;
+
+            color: blue;
+        }
+
+        h2 {
+            margin: 30px 0 20px;
+
+            color: red;
+        }
+
+        ol {
+            line-height: 1.5;
+        }
+
+
+        /* forms */
+        form {
+            overflow: auto;
+        }
+
+        form ul{
+            color: #aaa;
+        }
+
+        form p {
+            width: 100%;
+            overflow: auto;
+
+        }
+
+        label {
+            float: left;
+            clear: both;
+            {#color: #333;#}
+             color: blue;
+            margin-bottom: 4px;
+        }
+
+        input, textarea {
+            clear: both;
+            float: left;
+            {#margin: 0 0 10px;#}
+            margin: 0 0 6px;
+        {#background: #efefef;#}
+            background: lightblue;
+            border: 0;
+            padding: 6px 10px;
+            font-size: 14px;
+        }
+
+        input[type=submit], a.button {
+            font-weight: bold;
+            background: #12c064;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .errorlist {
+            color: #cc0033;
+            float: left;
+            clear: both;
+            padding-left: 10px;
+        }
+
+        .helptext {
+            {#margin: 0 0 20px 0;#}
+            margin: 0 0 5px 0;
+            color: #aaa;
+            clear: both;
+            float: left;
+            font-size: 13px;
+        }
+
+        /* messages */
+        ul.messages {
+            margin: 10px 100px;
+            padding: 0;
+            list-style-type: none;
+
+        }
+
+        ul.messages li.success,
+        ul.messages li.warning,
+        ul.messages li.error,
+        ul.messages li.info {
+            margin: 0;
+            padding: 14px 20px;
+            list-style: none;
+            color: #fff;
+        }
+
+        ul.messages li.success {
+            background: #81ce81;
+        }
+
+        ul.messages li.success a {
+            color: #0ac33e;
+        }
+
+        ul.messages li.error {
+            background: #a30029;
+            color: #e9828e;
+        }
+
+        ul.messages li.error a {
+            color: #e9828e;
+        }
+
+        ul.messages li.info {
+            background: #faffae;
+            color: #696b4e;
+
+        }
+
+        ul.messages li.info a {
+            color: #1586de;
+        }
+
+        ul.messages li.warning {
+            background: #de9404;
+        }
+
+        ul.messages li.warning a {
+            color: #f49000;
+        }
+
+        ul.messages li a.close {
+            margin: 0;
+            float: right;
+            opacity: 1;
+            border: 0;
+            box-shadow: none;
+            text-shadow: none;
+        }
+
+        .login-form {
+            float: left;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+
+{% block content %}
+    <h1>Create new user:</h1>
+    {#    <p>Please sign up using the following form:</p>#}
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create new user"></p>
+    </form>
+
+{% endblock %}

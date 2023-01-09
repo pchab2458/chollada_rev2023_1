@@ -1,0 +1,95 @@
+
+
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Room type and rate{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            white-space: nowrap;
+        }
+
+        thead, tfoot {
+            background-color: lightblue;
+        }
+
+        tfoot {
+            font-weight: bold;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: .2em .7em;
+            text-align: right;
+        }
+
+        th:first-child, td:first-child {
+            text-align: left;
+        }
+
+        th:first-child {
+
+            vertical-align: center;
+        }
+
+        th:nth-child(2) {
+            text-align: center;
+        }
+
+        tr:nth-child(1) th {
+            vertical-align: center;
+            text-align: center;
+            color: black;
+        }
+
+        tfoot tr:nth-child(1) th {
+            text-align: center;
+            vertical-align: center;
+            color: black;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Room rate( <i>{{ current_dt }}</i> )</h2>
+
+    <table>
+        <thead>
+
+        <tr>
+            <th>Room type</th>
+            <th>Baht/M</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for e in rm_type_rate %}
+            <tr>
+                <td>{{ e.desc }}</td>
+                <td>{{ e.rate|floatformat:0|intcomma }}</td>
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
+

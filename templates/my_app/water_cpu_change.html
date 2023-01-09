@@ -1,0 +1,65 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Water CPU{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    <style>
+        div #da .desc {
+            display: block;
+            width: 6em;
+            text-align: left;
+            float: left;
+            font-size: medium;
+            font-weight: bold;
+            color: black;
+        }
+
+        div #da .water_cpu {
+            display: block;
+            width: 7em;
+            text-align: center;
+            float: left;
+            font-size: medium;
+            background-color: powderblue;
+        }
+
+        div .submit {
+            clear: both;
+        }
+
+        div.submit button {
+            width: 6em;
+            font-size: medium;
+            background-color: blue;
+            color: white;
+            margin-top: .5em;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h2>Water CPU</h2>
+
+    <div id="hx">
+    </div>
+
+    <div id="da">
+        <form action="." method="post">
+            {% csrf_token %}
+            <span class="desc">Water CPU:</span>
+            {{ water_cpu_form.water_cpu }}
+            <br>
+            <div class="submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

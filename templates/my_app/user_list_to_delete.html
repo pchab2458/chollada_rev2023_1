@@ -1,0 +1,52 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+
+{% block title %}User_delete_form{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        p {
+            line-height: .7;
+        }
+
+
+        #del_form a {
+            color: black;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+        #del_form a:hover {
+            color: red;
+        }
+
+        #del_form #rmno {
+            color: red;
+            font-size: 17px;
+            text-decoration: none;
+        }
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Existing users ({{ tenantprofiles.count }}), select user to delete:</h1>
+
+    <div id="del_form">
+
+        {% for k,v in dict.items %}
+            <p><a href="{% url "confirm_delete_user" k %}">
+                <sp id="rmno">{{ k }}</sp>
+                {{ v }} </a></p>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

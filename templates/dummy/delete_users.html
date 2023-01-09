@@ -1,0 +1,113 @@
+{% extends "app_base_html.html" %}
+
+{% load static %}
+{#{% load widget_tweaks %}#}
+
+{% block title %}Delete users{% endblock %}
+
+
+{% block style %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: helvetica, sans-serif;
+        }
+
+        #content {
+            padding: 20px 100px;
+        }
+
+        #hx {
+            float: left;
+        }
+
+        #dx {
+            clear: both;
+        }
+
+        #hnam {
+
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #hrn {
+            display: block;
+            width: 3.5em;
+            color: white;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+
+        #hph {
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+
+        #hsdat {
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+
+
+        div.submit button {
+            width: 6em;
+            font-weight: bold;
+            font-size: large;
+            background-color: red;
+            color: white;
+            margin-top: .5em;
+            padding: .3em;
+        }
+
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <h1>Delete Users</h1>
+
+
+    <div id="hx">
+{#        <label id="hnam">NAME</label>#}
+{#        <label id="hrn">ROOM</label>#}
+{#        <label id="hph">PHONE</label>#}
+{#        <label id="hsdat">S_DATE</label>#}
+{#        <br>#}
+    </div>
+    <div id="dx">
+{#        <form action="." method="post">#}
+{#            {% csrf_token %}#}
+{##}
+{#            <div class="submit">#}
+{#                <button type="submit">Submit</button>#}
+{#            </div>#}
+{#        </form>#}
+    </div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,43 @@
+{% extends "auth_base_html.html" %}
+
+{% load static %}
+{% block title %}Create new user{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    <style>
+
+        input[type=submit] {
+            font-weight: bold;
+            background: mediumseagreen;
+            border-color: red;
+            border-radius: 15px;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        input[type=submit]:hover {
+            color: black;
+
+        }
+
+    </style>
+
+
+{% endblock %}
+
+{% block content %}
+    <h1>Create new user:</h1>
+    {#    <p>Please sign up using the following form:</p>#}
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create new user"></p>
+    </form>
+
+{% endblock %}

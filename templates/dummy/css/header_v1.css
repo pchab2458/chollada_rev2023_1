@@ -1,0 +1,199 @@
+/*@import url(http://fonts.googleapis.com/css?family=Muli);*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: helvetica, sans-serif;
+    /*font-family: "Courier New", sans-serif;*/
+    /* font-family: "Verdana","Arial","helvetica","Courier New", sans-serif;*/
+    font-size: 1em; /* 1em = 16px = default*/
+
+}
+
+
+p {
+    line-height: normal;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /*font-family: 'Muli', sans-serif;*/
+    font-family: 'helvetica', sans-serif;
+    font-weight: normal;
+}
+
+
+h1 {
+    border-bottom: 2px solid #bbb;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+h2 {
+    margin: 30px 0 20px;
+}
+
+
+
+
+#header {
+    padding: 10px 25px;
+    /*font-size: 14px;*/
+    font-size: 1em;
+    background: darkcyan;
+    color: gold;
+    overflow: auto;
+    /*margin: 5px;*/
+}
+
+
+/*#header a {*/
+/*    color: #f3f7cc;*/
+/*}*/
+
+/*#header a:hover {*/
+/*    color: black;*/
+/*}*/
+
+#header .logo {
+    font-family: helvetica, sans-serif;
+    float: left;
+    color: gold;
+    font-size: 30px;
+    /*font-size: 1.8em;*/
+    /*margin-right: 10%;*/
+    margin: 0 0;
+}
+
+
+
+#header ul.menu {
+
+    list-style: none;
+    float: left;
+
+    margin: 10px 40px;
+    padding: 0;
+}
+
+
+
+#header .user {
+    float: right;
+    padding-top: 0;
+    margin-top: 10px;
+    color: #dad55e;
+}
+
+#header .user a {
+    color: #fff;
+}
+
+#header .user a:hover {
+    color: red;
+}
+
+
+
+
+#header ul.menu li {
+    /*float: left;*/
+    /*padding: 0 10px;*/
+
+    float: left;
+    padding: 0 0;
+    margin: 0 10px;
+}
+
+#header ul.menu li.selected a {
+    color: red;
+}
+
+#header ul.menu li.selected a:hover {
+    color: yellow;
+    font-style: italic;
+    font-size: 1em;
+}
+
+
+#header .user #log_o a {
+    color: honeydew;
+    margin-left: 5px;
+}
+
+#header .user #log_i a {
+    color: honeydew;
+}
+
+#header .user #pw_c a {
+    color: black;
+    margin-left: 5px;
+}
+
+#header .user #log_i a:hover {
+    color: white;
+}
+
+#header .user #log_o a:hover {
+    color: blue;
+}
+
+#header .user #pw_c a:hover {
+    color: blue;
+}
+
+
+
+
+#content {
+    padding: 30px 5px;
+}
+
+#content a{
+    color: red;
+}
+
+#content a:hover{
+    color: limegreen;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul.messages li.warning,
+ul.messages li.error {
+    list-style: disc;
+    color: red;
+    background: #dad55e;
+}
+
+ul.messages li.success,
+ul.messages li.info {
+    /*list-style: disc;*/
+    list-style-type: disc;
+    color: green;
+    /*background: #dad55e;*/
+    /*text-align: center;*/
+
+}
+

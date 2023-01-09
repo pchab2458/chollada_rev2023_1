@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+
+    {#    <link rel="shortcut icon" href={% static "pics/icons8-info-50.png" %}>#}
+    {#    <link rel="shortcut icon" href={% static "pics/icons8-home-50.png" %}>#}
+    <link rel="shortcut icon" href={% static "pics/icon_globe_12195.png" %}>
+    {#    <link href="{% static "css/header.css" %}" rel="stylesheet">#}
+    {#    <link href="{% static "css/header_v1.css" %}" rel="stylesheet">#}
+    <link href="{% static "css/base_v1.css" %}" rel="stylesheet">
+
+
+
+    {% block script %}
+    {% endblock %}
+
+    <style>
+
+
+        body, html {
+            background-image: url("/static/pics/bg1.jpg");
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+
+    </style>
+
+    {% block style %}
+    {% endblock %}
+
+
+</head>
+<body>
+<div id="header">
+    <span class="logo">Chollada Apartment Administration Page</span>
+
+    {% if request.user.is_authenticated %}
+        <ul class="menu">
+            <li {% if section == "new_contract" %}class="selected"{% endif %}>
+                <a href="{% url "create_contract" %}">New Contract</a>
+            </li>
+
+            <li {% if section == "billing" %}class="selected"{% endif %}>
+                <a href="{% url "billing" %}">Billing</a>
+            </li>
+
+            <li {% if section == "payment_individual" %}class="selected"{% endif %}>
+                <a href="{% url "payment_individual" %}">Payment (I)</a>
+            </li>
+
+            <li {% if section == "payment" %}class="selected"{% endif %}>
+                <a href="{% url "payment" %}">Payment (A)</a>
+            </li>
+
+            <li {% if section == "report" %}class="selected"{% endif %}>
+                <a href="{% url "report_type" %}">Reports</a>
+            </li>
+
+
+            <li {% if section == "delete_account" %}class="selected"{% endif %}>
+                <a href="{% url "delete_account" %}">Delete Account</a>
+            </li>
+
+
+            <li {% if section == "misc" %}class="selected"{% endif %}>
+                <a href="{% url "misc_contents" %}">Miscellaneous</a>
+            </li>
+
+        </ul>
+
+    {% endif %}
+
+    <span class="user">
+      {% if request.user.is_authenticated %}
+          Hello {{ request.user.first_name }},
+          <a href="{% url "logout" %}">Logout</a> <a href="{% url "password_change" %}">OR Change Password</a>
+      {% else %}
+          <a href="{% url "login" %}">Log-in</a>
+      {% endif %}
+    </span>
+</div>
+
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message|safe }}</li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+</body>
+
+</html>

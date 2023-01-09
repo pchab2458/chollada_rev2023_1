@@ -1,0 +1,95 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Extra Service Report{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        div #hx {
+            float: left;
+        }
+
+        div #hx #hdesc {
+
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        div #hx #hcpu {
+
+            display: block;
+            width: 7em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+
+        div #da {
+            clear: both;
+        }
+
+        div #da .desc {
+            display: block;
+            width: 12em;
+            text-align: left;
+            float: left;
+            font-size: medium;
+        }
+
+        div #da .cpu {
+            display: block;
+            width: 7em;
+            text-align: right;
+            float: left;
+            font-size: medium;
+        }
+
+        a:hover {
+            color: red;
+            font-weight: bold;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <h2>Extra-Service Rates( {{ current_dt }} )</h2>
+
+    <div id="hx">
+        <label id="hdesc">Description</label>
+        <label id="hcpu">Rate</label>
+        <br>
+    </div>
+    <div id="da">
+        {% for e in extra %}
+            <span class="desc">{{ e.desc }}</span>
+            {% if e.desc == 'Electricity CPU' %}
+                <a class="cpu" href="{% url 'elec_cpu_change' %}"> {{ e.cpu|floatformat:2|intcomma }}</a><br>
+            {% else %}
+                {% if e.desc == 'Water CPU' %}
+                    <a class="cpu" href="{% url 'water_cpu_change' %}"> {{ e.cpu|floatformat:2|intcomma }}</a><br>
+                {% else %}
+                    <span class="cpu">{{ e.cpu|floatformat:0|intcomma }}</span><br>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}

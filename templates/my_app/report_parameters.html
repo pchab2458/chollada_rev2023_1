@@ -1,0 +1,144 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+
+{% block title %}Report Parameters{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+
+    <style>
+        fieldset {
+            color: gray;
+            width: 20em;
+            font-weight: bold;
+            {#text-align: left;#}
+            {#text-align: right;#}
+            margin-right: .15em;
+        }
+
+       label {
+            color: red;
+            width: 8em;
+
+            {#font-weight: bold;#}
+            text-align: right;
+            margin-right: .15em;
+        }
+
+        #bld {
+
+            display: block;
+            width: 8em;
+            color: white;
+            background-color: green;
+        {#float: left;#} text-align: center;
+            font-size: medium;
+        }
+
+        #month {
+
+            display: block;
+            width: 8em;
+            color: white;
+            background-color: green;
+        {#float: left;#} text-align: center;
+            font-size: medium;
+        }
+
+        #year {
+
+            display: block;
+            width: 8em;
+            color: white;
+            background-color: green;
+        {#float: left;#} text-align: center;
+            font-size: medium;
+        }
+
+
+        .submit button {
+            width: 8em;
+            font-size: large;
+            background-color: red;
+            border-color: red;
+            border-radius: 15px;
+            color: white;
+            margin-top: .5em;
+            padding: .3em;
+        }
+
+        .submit button:hover {
+            color: black;
+        }
+
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <h2>Monthly Report</h2>
+
+
+    {#    <form action="{% url 'monthly_report' %}" method="post">#} {# USE THIS FOR FULL MONTHLY REPORT #}
+    <form action="{% url 'monthly_report_mini' %}" method="post"> {# USE THIS FOR MINI MONTHLY REPORT #}
+
+
+        {% csrf_token %}
+
+        {#        <div class="fld_set">#}
+
+        <fieldset>
+            <legend>SELECT REPORT PARAMETERS</legend>
+
+            <label for="bld">BUILDING:</label>
+            <select id="bld" name="bld">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="AB">AB</option>
+            </select><br>
+
+            <label for="month">MONTH:</label>
+            <select id="month" name="month">
+                <option value="1">JAN</option>
+                <option value="2">FEB</option>
+                <option value="3">MAR</option>
+                <option value="4">APR</option>
+                <option value="5">MAY</option>
+                <option value="6">JUN</option>
+                <option value="7">JUL</option>
+                <option value="8">AUG</option>
+                <option value="9">SEP</option>
+                <option value="10">OCT</option>
+                <option value="11">NOV</option>
+                <option value="12">DEC</option>
+            </select><br>
+
+            <label for="year">YEAR:</label>
+            <select id="year" name="year">
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select><br>
+
+        </fieldset>
+
+        {#        </div>#}
+
+
+        <div class="submit">
+            <button type="submit">Show Report</button>
+        </div>
+
+    </form>
+
+{% endblock %}

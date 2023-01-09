@@ -1,0 +1,190 @@
+{% extends "app_base_html.html" %}
+
+{% load account_tags %}
+{% load ams_tags %}
+
+{% load static %}
+{% load humanize %}
+
+{% block title %}Current tenants{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+
+        div #hx {
+            float: left;
+        }
+
+        div #da {
+            clear: both;
+        }
+
+        #hrn {
+
+            display: block;
+            width: 3em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        #hname {
+
+            display: block;
+            width: 12em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        #hhp {
+
+            display: block;
+            width: 7em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            font-size: medium;
+        }
+
+        #hpin {
+
+            display: block;
+            width: 8em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            font-size: medium;
+        }
+
+        #hsd {
+
+            display: block;
+            width: 8em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+
+        #hrmc, #hadj, #hovd,
+        #hrmacc, #hrmoc, #hdepo {
+
+            display: block;
+            width: 4em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+
+        .rn {
+
+            display: block;
+            width: 3em;
+            color: red;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        .name {
+
+            display: block;
+            width: 12em;
+            float: left;
+            text-align: left;
+            font-size: medium;
+        }
+
+        .hp {
+
+            display: block;
+            width: 7em;
+            float: left;
+            text-align: center;
+            font-size: medium;
+        }
+
+        .pin {
+
+            display: block;
+            width: 8em;
+            float: left;
+            text-align: center;
+            font-size: medium;
+        }
+
+        .sd {
+
+            display: block;
+            width: 8em;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+
+        .rmc, .adj, .ovd,
+        .rmacc, .rmoc, .depo {
+
+            display: block;
+            width: 4em;
+            float: left;
+            text-align: right;
+            font-size: medium;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <h2>Current Tenants as of {{ current_dt }} : [{{ total_tn }}]</h2>
+
+    <div id="hx">
+        <label id="hrn">RNO</label>
+        <label id="hname">NAME</label>
+        <label id="hhp">HP</label>
+        <label id="hrmc">RMC</label>
+        <label id="hrmacc">RAC</label>
+        <label id="hrmoc">OSC</label>
+        <label id="hdepo">DEPO</label>
+        <label id="hadj">ADJ</label>
+        <label id="hovd">OVD</label>
+        <label id="hsd">S-DATE</label>
+        <br>
+    </div>
+
+    <div id="da">
+
+        {% for tn in cur_tenant %}
+            <span class="rn">{{ tn.room_no }}</span>
+            <span class="name">{{ tn.tenant }}</span>
+            <span class="hp">{{ tn.phone }}</span>
+            <span class="rmc">{{ tn.room_no.room_type.rate|floatformat:0|intcomma }}</span>
+            <span class="rmacc">{% room_acc_cost tn.room_no.room_no %}  </span>
+            <span class="rmoc">{% room_other_cost tn.room_no.room_no %} </span>
+            <span class="depo">{{ tn.deposit|floatformat:0|intcomma }}</span>
+            <span class="adj">{{ tn.adjust|floatformat:0|intcomma }}</span>
+            <span class="ovd">{{ tn.cum_ovd|floatformat:0|intcomma }}</span>
+            <span class="sd">{{ tn.start_date }}</span><br>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

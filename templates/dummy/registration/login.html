@@ -1,0 +1,56 @@
+
+{% extends 'auth_base_html.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+    <style>
+
+        input[type=submit] {
+            font-weight: bold;
+            background: mediumseagreen;
+            border-color: red;
+            border-radius: 15px;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        input[type=submit]:hover {
+            color: black;
+
+        }
+
+    </style>
+
+
+{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+
+    <p>
+        Please use the following form to log-in.
+        If you don't have an account <a href="{% url "register" %}">Register here</a>.
+    </p>
+
+    <form action="{% url 'login' %}" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}"/>
+        <p><input type="submit" value="Log-in"></p>
+    </form>
+    <p>
+        <a href="{% url "password_reset" %}">
+            Forgotten your password?
+        </a>
+    </p>
+
+{% endblock %}
+

@@ -1,0 +1,372 @@
+{% extends "app_base_html.html" %}
+{% load static %}
+{% load account_tags %}
+
+{% block title %}Billing{% endblock %}
+
+{% block script %}
+    <link href="{% static "css/app_body.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block style %}
+
+    <style>
+
+        #hx {
+            float: left;
+        }
+
+        #dx {
+            clear: both;
+        }
+
+        #hnam {
+
+            display: block;
+            width: 13em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+
+        }
+
+        #hphone {
+            display: block;
+            width: 7em;
+            color: white;
+            background-color: blue;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+        }
+
+        #hroom {
+            display: block;
+            width: 4.25em;
+            color: white;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 1.5em;
+
+        }
+
+        .name {
+            display: block;
+            width: 13em;
+            float: left;
+
+            line-height: 1.5em;
+
+        }
+
+        .phone {
+            display: block;
+            width: 7em;
+            text-align: center;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .room {
+            display: block;
+            width: 4.25em;
+            color: #de1710;
+            text-align: center;
+            float: left;
+            line-height: 1.5em;
+        }
+
+        .eu, .wu, .mc {
+            width: 7em;
+            text-align: center;
+            color: red;
+            background-color: lightskyblue;
+            margin-left: .25em;
+
+            line-height: 1.5em;
+        }
+
+        .submit button {
+            width: 8em;
+            font-size: large;
+            background-color: red;
+            border-color: red;
+            border-radius: 15px;
+            color: white;
+            margin-top: .5em;
+            padding: .3em;
+        }
+
+        .submit button:hover {
+            color: black;
+        }
+
+    </style>
+
+{% endblock %}
+
+
+{% block content %}
+    <h1>Create Bills</h1>
+
+    <div id="hx">
+        <label id="hnam">NAME</label>
+        <label id="hphone">PHONE</label>
+        <label id="hroom">ROOM</label>
+        <br>
+    </div>
+
+
+    <div id="dx">
+
+        <form action="." method="post">
+            {% csrf_token %}
+
+
+            {% for data in tenant_pf %}
+
+                {% if data.room_no.room_no == '101A' %}
+                    {% display_tenant_data '101A' %}
+                    {{ rm101a_form.elec_unit }}
+                    {{ rm101a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '102A' %}
+                    {% display_tenant_data '102A' %}
+                    {{ rm102a_form.elec_unit }}
+                    {{ rm102a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '103A' %}
+                    {% display_tenant_data '103A' %}
+                    {{ rm103a_form.elec_unit }}
+                    {{ rm103a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '104A' %}
+                    {% display_tenant_data '104A' %}
+                    {{ rm104a_form.elec_unit }}
+                    {{ rm104a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '105A' %}
+                    {% display_tenant_data '105A' %}
+                    {{ rm105a_form.elec_unit }}
+                    {{ rm105a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '106A' %}
+                    {% display_tenant_data '106A' %}
+                    {{ rm106a_form.elec_unit }}
+                    {{ rm106a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '201A' %}
+                    {% display_tenant_data '201A' %}
+                    {{ rm201a_form.elec_unit }}
+                    {{ rm201a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '202A' %}
+                    {% display_tenant_data '202A' %}
+                    {{ rm202a_form.elec_unit }}
+                    {{ rm202a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '203A' %}
+                    {% display_tenant_data '203A' %}
+                    {{ rm203a_form.elec_unit }}
+                    {{ rm203a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '204A' %}
+                    {% display_tenant_data '204A' %}
+                    {{ rm204a_form.elec_unit }}
+                    {{ rm204a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '205A' %}
+                    {% display_tenant_data '205A' %}
+                    {{ rm205a_form.elec_unit }}
+                    {{ rm205a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '206A' %}
+                    {% display_tenant_data '206A' %}
+                    {{ rm206a_form.elec_unit }}
+                    {{ rm206a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '301A' %}
+                    {% display_tenant_data '301A' %}
+                    {{ rm301a_form.elec_unit }}
+                    {{ rm301a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '302A' %}
+                    {% display_tenant_data '302A' %}
+                    {{ rm302a_form.elec_unit }}
+                    {{ rm302a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '303A' %}
+                    {% display_tenant_data '303A' %}
+                    {{ rm303a_form.elec_unit }}
+                    {{ rm303a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '304A' %}
+                    {% display_tenant_data '304A' %}
+                    {{ rm304a_form.elec_unit }}
+                    {{ rm304a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '305A' %}
+                    {% display_tenant_data '305A' %}
+                    {{ rm305a_form.elec_unit }}
+                    {{ rm305a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '306A' %}
+                    {% display_tenant_data '306A' %}
+                    {{ rm306a_form.elec_unit }}
+                    {{ rm306a_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '201B' %}
+                    {% display_tenant_data '201B' %}
+                    {{ rm201b_form.elec_unit }}
+                    {{ rm201b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '202B' %}
+                    {% display_tenant_data '202B' %}
+                    {{ rm202b_form.elec_unit }}
+                    {{ rm202b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '203B' %}
+                    {% display_tenant_data '203B' %}
+                    {{ rm203b_form.elec_unit }}
+                    {{ rm203b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '204B' %}
+                    {% display_tenant_data '204B' %}
+                    {{ rm204b_form.elec_unit }}
+                    {{ rm204b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '205B' %}
+                    {% display_tenant_data '205B' %}
+                    {{ rm205b_form.elec_unit }}
+                    {{ rm205b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '301B' %}
+                    {% display_tenant_data '301B' %}
+                    {{ rm301b_form.elec_unit }}
+                    {{ rm301b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+
+                {% if data.room_no.room_no == '302B' %}
+                    {% display_tenant_data '302B' %}
+                    {{ rm302b_form.elec_unit }}
+                    {{ rm302b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '303B' %}
+                    {% display_tenant_data '303B' %}
+                    {{ rm303b_form.elec_unit }}
+                    {{ rm303b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '304B' %}
+                    {% display_tenant_data '304B' %}
+                    {{ rm304b_form.elec_unit }}
+                    {{ rm304b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '305B' %}
+                    {% display_tenant_data '305B' %}
+                    {{ rm305b_form.elec_unit }}
+                    {{ rm305b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '401B' %}
+                    {% display_tenant_data '401B' %}
+                    {{ rm401b_form.elec_unit }}
+                    {{ rm401b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+
+                {% if data.room_no.room_no == '402B' %}
+                    {% display_tenant_data '402B' %}
+                    {{ rm402b_form.elec_unit }}
+                    {{ rm402b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '403B' %}
+                    {% display_tenant_data '403B' %}
+                    {{ rm403b_form.elec_unit }}
+                    {{ rm403b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '404B' %}
+                    {% display_tenant_data '404B' %}
+                    {{ rm404b_form.elec_unit }}
+                    {{ rm404b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+                {% if data.room_no.room_no == '405B' %}
+                    {% display_tenant_data '405B' %}
+                    {{ rm405b_form.elec_unit }}
+                    {{ rm405b_form.water_unit }}
+                    <br>
+                {% endif %}
+
+
+            {% endfor %}
+            <div class="submit">
+                <button type="submit">Create Billing</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
